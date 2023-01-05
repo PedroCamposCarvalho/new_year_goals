@@ -54,6 +54,7 @@ const AddGoalModal: React.FC<Props> = ({ goal, closeModal, loadGoals }) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [completed, setCompleted] = useState(goal.completed);
   const [inputValue, setInputValue] = useState(goal.value);
+  const [progressAmount, setProgressAmount] = useState(goal.amount);
 
   const [goalsTypes] = useState<IGoalsTypes[]>([
     {
@@ -66,7 +67,7 @@ const AddGoalModal: React.FC<Props> = ({ goal, closeModal, loadGoals }) => {
     },
     {
       name: 'fitness',
-      label: 'Loose weight',
+      label: 'Lose weight',
       icon: 'fitness-center',
       inputLabel: 'How much weight do you want to loose?',
       inputPlaceholder: 'Ex.: 10 pounds',
@@ -105,7 +106,7 @@ const AddGoalModal: React.FC<Props> = ({ goal, closeModal, loadGoals }) => {
         goals[index].type = selectedType;
         goals[index].date = selectedDate;
         goals[index].value = inputValue;
-        goals[index].amount = '';
+        goals[index].amount = progressAmount;
         goals[index].completed = completed;
 
         loadGoals(goals);
@@ -119,6 +120,7 @@ const AddGoalModal: React.FC<Props> = ({ goal, closeModal, loadGoals }) => {
     selectedType,
     selectedDate,
     inputValue,
+    progressAmount,
     completed,
     goal,
   ]);
@@ -198,6 +200,14 @@ const AddGoalModal: React.FC<Props> = ({ goal, closeModal, loadGoals }) => {
                 value={inputValue}
                 onChangeText={setInputValue}
               />
+              {goal.type.name !== 'car' && (
+                <ValueInput
+                  placeholder="Your progress so far"
+                  keyboardType={selectedType.keyboardType}
+                  value={progressAmount}
+                  onChangeText={setProgressAmount}
+                />
+              )}
             </InputContainer>
             <CompletedContainer>
               <CompletedLabel>Completed? </CompletedLabel>

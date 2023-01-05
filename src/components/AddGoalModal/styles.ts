@@ -8,7 +8,7 @@ interface ItemButtonProps {
 }
 
 export const Container = styled.View`
-  height: ${RFValue(400)};
+  height: ${RFValue(500)};
   background: ${colors.grey};
   border-radius: ${RFValue(8)};
   align-items: center;
@@ -62,7 +62,7 @@ export const GoalTypeItem = styled.TouchableOpacity`
 
 export const GoalItemIconContainer = styled.View<ItemButtonProps>`
   background: ${props =>
-    (props.selected ? darken(0.001, colors.blue) : colors.lightBlue)};
+    props.selected ? darken(0.001, colors.blue) : colors.lightBlue};
   height: ${RFValue(45)};
   width: ${RFValue(45)};
   align-items: center;

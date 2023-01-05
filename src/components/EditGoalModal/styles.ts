@@ -8,7 +8,7 @@ interface ItemButtonProps {
 }
 
 export const Container = styled.View`
-  height: ${RFValue(400)};
+  height: ${RFValue(500)};
   background: ${colors.grey};
   border-radius: ${RFValue(8)};
   align-items: center;

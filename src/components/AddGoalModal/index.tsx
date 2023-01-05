@@ -63,7 +63,7 @@ const AddGoalModal: React.FC<Props> = ({ closeModal, createGoal }) => {
     },
     {
       name: 'fitness',
-      label: 'Loose weight',
+      label: 'Lose weight',
       icon: 'fitness-center',
       inputLabel: 'How much weight do you want to loose?',
       inputPlaceholder: 'Ex.: 10 pounds',

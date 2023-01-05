@@ -67,6 +67,11 @@ const GoalItem: React.FC<PageProps> = ({ goal, loadGoals }) => {
     );
   }, []);
 
+  const progress = useMemo(
+    () => (100 * Number(goal.amount)) / Number(goal.value) / 100,
+    [goal],
+  );
+
   return (
     <Container
       style={{
@@ -100,9 +105,10 @@ const GoalItem: React.FC<PageProps> = ({ goal, loadGoals }) => {
           </DeleteButton>
         </ButtonsContainer>
       </GoalHeader>
+
       {goal.type.name !== 'car' && (
         <ProgressContainer>
-          <ProgressBar progress={Number(goal.amount)} color={colors.blue} />
+          <ProgressBar progress={progress} color={colors.blue} />
           <ProgressValuesContainer>
             <ProgressValue>0</ProgressValue>
             <ProgressValue>{goal.value}</ProgressValue>
